@@ -33,23 +33,23 @@ const ContactSection = () => {
   };
 
   const socialLinks = [
-    { name: 'GitHub', icon: Github, href: 'https://github.com', color: '#333' },
-    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: '#0077B5' },
-    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com', color: '#1DA1F2' },
-    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: '#E4405F' },
+    { name: 'GitHub', icon: Github, href: 'https://github.com/shyam-3045', color: '#333' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://www.linkedin.com/in/s-m-shyam-2740b4321/', color: '#0077B5' },
+    { name: 'GMail', icon: Mail, href: 'https://mail.google.com/mail/u/1/#inbox?compose=jrjtXGkPRdNssvrZGnnbxgXgwhGShSdztpdJTkwgPvvmWRQKZlMMdQLBLDWjlbNGHdVctmxL', color: '#1DA1F2' },
+    { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/_s.h.y.a.m_10/', color: '#E4405F' },
   ];
 
   const contactInfo = [
     {
       icon: Mail,
       label: 'Email',
-      value: 'john.doe@example.com',
+      value: 's.m.shyam45@gmail.com',
       color: '#667eea'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'San Francisco, CA',
+      value: 'Erode, Tamil Nadu, India',
       color: '#f093fb'
     },
     {

@@ -117,7 +117,7 @@ const Navigation = () => {
                 Download Resume
               </motion.button>
             </div>
-          </motion.div>
+          </motion.div> 
         )}
       </AnimatePresence>
     </nav>

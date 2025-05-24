@@ -1,7 +1,5 @@
 
 import { motion } from 'framer-motion';
-import TechIcons from '../TechIcons';
-import SocialIcons from '../SocialIcons';
 
 const HeroSection = () => {
   return (
@@ -61,7 +59,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
-            <SocialIcons />
+            
           </motion.div>
         </motion.div>
         
@@ -71,7 +69,7 @@ const HeroSection = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="hidden lg:block"
         >
-          <TechIcons />
+          
         </motion.div>
       </div>
       

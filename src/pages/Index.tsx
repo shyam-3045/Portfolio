@@ -34,7 +34,7 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
               <p className="text-gray-400 mb-4 md:mb-0">
-                © 2024 John Doe. All rights reserved.
+                © 2024 Shyam's Portfolio. All rights reserved.
               </p>
               <div className="flex space-x-6">
                 <a href="#" className="text-gray-400 hover:text-white transition-colors">
