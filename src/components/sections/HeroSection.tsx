@@ -20,7 +20,7 @@ const HeroSection = () => {
             className="text-5xl lg:text-7xl font-bold mb-6"
           >
             Hi, I'm{' '}
-            <span className="gradient-text">John Doe</span>
+            <span className="gradient-text">Shyam</span>
           </motion.h1>
           
           <motion.h2
