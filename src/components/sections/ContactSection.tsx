@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { Github, Linkedin, Twitter, Instagram, Mail, MapPin, Clock } from 'lucide-react';
 
 const ContactSection = () => {
   const [ref, inView] = useInView({
@@ -31,6 +32,35 @@ const ContactSection = () => {
     });
   };
 
+  const socialLinks = [
+    { name: 'GitHub', icon: Github, href: 'https://github.com', color: '#333' },
+    { name: 'LinkedIn', icon: Linkedin, href: 'https://linkedin.com', color: '#0077B5' },
+    { name: 'Twitter', icon: Twitter, href: 'https://twitter.com', color: '#1DA1F2' },
+    { name: 'Instagram', icon: Instagram, href: 'https://instagram.com', color: '#E4405F' },
+  ];
+
+  const contactInfo = [
+    {
+      icon: Mail,
+      label: 'Email',
+      value: 'john.doe@example.com',
+      color: '#667eea'
+    },
+    {
+      icon: MapPin,
+      label: 'Location',
+      value: 'San Francisco, CA',
+      color: '#f093fb'
+    },
+    {
+      icon: Clock,
+      label: 'Availability',
+      value: 'Open to work',
+      color: '#4ade80',
+      isStatus: true
+    }
+  ];
+
   return (
     <section id="contact" ref={ref} className="min-h-screen flex items-center py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,53 +88,70 @@ const ContactSection = () => {
           >
             <div className="glass rounded-2xl p-8">
               <h3 className="text-2xl font-semibold mb-6 gradient-text">Let's Connect</h3>
-              <div className="space-y-4">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <span className="text-primary">📧</span>
-                  </div>
-                  <div>
-                    <p className="text-gray-400">Email</p>
-                    <p className="text-white">john.doe@example.com</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <span className="text-primary">📍</span>
-                  </div>
-                  <div>
-                    <p className="text-gray-400">Location</p>
-                    <p className="text-white">San Francisco, CA</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <span className="text-primary">🟢</span>
-                  </div>
-                  <div>
-                    <p className="text-gray-400">Availability</p>
-                    <p className="text-green-400">Open to work</p>
-                  </div>
-                </div>
+              <div className="space-y-6">
+                {contactInfo.map((info, index) => {
+                  const IconComponent = info.icon;
+                  return (
+                    <motion.div
+                      key={info.label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={inView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.1 * index }}
+                      className="flex items-center space-x-4 group cursor-pointer hover:bg-gray-800/50 p-3 rounded-lg transition-all duration-300"
+                      whileHover={{ scale: 1.02 }}
+                    >
+                      <motion.div 
+                        className="w-12 h-12 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                        style={{ backgroundColor: `${info.color}20` }}
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <IconComponent 
+                          className="w-6 h-6 group-hover:text-white transition-colors" 
+                          style={{ color: info.color }}
+                        />
+                      </motion.div>
+                      <div>
+                        <p className="text-gray-400 text-sm">{info.label}</p>
+                        <p className={`font-medium ${info.isStatus ? 'text-green-400' : 'text-white'} group-hover:text-primary transition-colors`}>
+                          {info.value}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
             <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-semibold mb-6 gradient-text">Social Links</h3>
+              <h3 className="text-2xl font-semibold mb-6 gradient-text">Follow Me</h3>
               <div className="flex space-x-4">
-                {['GitHub', 'LinkedIn', 'Twitter', 'Instagram'].map((social, index) => (
-                  <motion.a
-                    key={social}
-                    href="#"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="w-12 h-12 bg-gray-800 hover:bg-primary rounded-lg flex items-center justify-center transition-colors duration-300"
-                  >
-                    <span className="text-white">{social[0]}</span>
-                  </motion.a>
-                ))}
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <motion.a
+                      key={social.name}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                      transition={{ duration: 0.5, delay: 0.1 * index }}
+                      whileHover={{ scale: 1.1, y: -5 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-lg flex items-center justify-center transition-all duration-300 group relative overflow-hidden"
+                      style={{ '--hover-color': social.color } as any}
+                    >
+                      <motion.div
+                        className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
+                        style={{ backgroundColor: social.color }}
+                      />
+                      <IconComponent 
+                        className="w-6 h-6 text-gray-400 group-hover:text-white transition-colors relative z-10" 
+                      />
+                    </motion.a>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
@@ -119,65 +166,84 @@ const ContactSection = () => {
             <h3 className="text-2xl font-semibold mb-6 gradient-text">Send Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-gray-400 mb-2">Name</label>
+                <motion.div
+                  whileFocus={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <label className="block text-gray-400 mb-2 font-medium">Name</label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors"
+                    className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
                     placeholder="Your name"
                   />
-                </div>
-                <div>
-                  <label className="block text-gray-400 mb-2">Email</label>
+                </motion.div>
+                <motion.div
+                  whileFocus={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <label className="block text-gray-400 mb-2 font-medium">Email</label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors"
+                    className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
                     placeholder="your.email@example.com"
                   />
-                </div>
+                </motion.div>
               </div>
               
-              <div>
-                <label className="block text-gray-400 mb-2">Subject</label>
+              <motion.div
+                whileFocus={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <label className="block text-gray-400 mb-2 font-medium">Subject</label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors"
+                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
                   placeholder="Project inquiry"
                 />
-              </div>
+              </motion.div>
               
-              <div>
-                <label className="block text-gray-400 mb-2">Message</label>
+              <motion.div
+                whileFocus={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <label className="block text-gray-400 mb-2 font-medium">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none transition-colors resize-none"
+                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none hover:bg-gray-800"
                   placeholder="Tell me about your project..."
                 />
-              </div>
+              </motion.div>
               
               <motion.button
                 type="submit"
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-primary hover:bg-primary/80 text-white py-3 rounded-lg transition-colors duration-300 glow"
+                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white py-4 rounded-lg transition-all duration-300 glow hover:shadow-lg font-medium"
               >
-                Send Message
+                <motion.span
+                  initial={{ opacity: 1 }}
+                  whileHover={{ opacity: 0.8 }}
+                  className="flex items-center justify-center space-x-2"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>Send Message</span>
+                </motion.span>
               </motion.button>
             </form>
           </motion.div>
