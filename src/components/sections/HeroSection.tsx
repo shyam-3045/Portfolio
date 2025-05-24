@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
-import TechIcons3D from '../TechIcons3D';
+import TechIcons from '../TechIcons';
+import SocialIcons from '../SocialIcons';
 
 const HeroSection = () => {
   return (
@@ -45,7 +46,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8"
           >
             <button className="bg-primary hover:bg-primary/80 text-white px-8 py-3 rounded-lg transition-all duration-300 glow hover:scale-105">
               View Projects
@@ -53,6 +54,14 @@ const HeroSection = () => {
             <button className="border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">
               Download Resume
             </button>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
+          >
+            <SocialIcons />
           </motion.div>
         </motion.div>
         
@@ -62,7 +71,7 @@ const HeroSection = () => {
           transition={{ delay: 0.4, duration: 0.8 }}
           className="hidden lg:block"
         >
-          <TechIcons3D />
+          <TechIcons />
         </motion.div>
       </div>
       
