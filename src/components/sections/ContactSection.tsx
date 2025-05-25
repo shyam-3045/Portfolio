@@ -164,88 +164,78 @@ const ContactSection = () => {
             className="glass rounded-2xl p-8"
           >
             <h3 className="text-2xl font-semibold mb-6 gradient-text">Send Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid sm:grid-cols-2 gap-4">
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <label className="block text-gray-400 mb-2 font-medium">Name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
-                    placeholder="Your name"
-                  />
-                </motion.div>
-                <motion.div
-                  whileFocus={{ scale: 1.02 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <label className="block text-gray-400 mb-2 font-medium">Email</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
-                    placeholder="your.email@example.com"
-                  />
-                </motion.div>
-              </div>
-              
-              <motion.div
-                whileFocus={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <label className="block text-gray-400 mb-2 font-medium">Subject</label>
-                <input
-                  type="text"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
-                  placeholder="Project inquiry"
-                />
-              </motion.div>
-              
-              <motion.div
-                whileFocus={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <label className="block text-gray-400 mb-2 font-medium">Message</label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none hover:bg-gray-800"
-                  placeholder="Tell me about your project..."
-                />
-              </motion.div>
-              
-              <motion.button
-                type="submit"
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white py-4 rounded-lg transition-all duration-300 glow hover:shadow-lg font-medium"
-              >
-                <motion.span
-                  initial={{ opacity: 1 }}
-                  whileHover={{ opacity: 0.8 }}
-                  className="flex items-center justify-center space-x-2"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>Send Message</span>
-                </motion.span>
-              </motion.button>
-            </form>
+            <form
+  action="https://formsubmit.co/s.m.shyam45@gmail.com"
+  method="POST"
+  className="space-y-6"
+>
+  {/* Optional hidden inputs */}
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="New message from Shyam Portfolio" />
+  <input type="hidden" name="_next" value="https://shyam-sm.web.app//thank-you" />
+
+  <div className="grid sm:grid-cols-2 gap-4">
+    <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+      <label className="block text-gray-400 mb-2 font-medium">Name</label>
+      <input
+        type="text"
+        name="name"
+        required
+        className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
+        placeholder="Your name"
+      />
+    </motion.div>
+    <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+      <label className="block text-gray-400 mb-2 font-medium">Email</label>
+      <input
+        type="email"
+        name="email"
+        required
+        className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
+        placeholder="your.email@example.com"
+      />
+    </motion.div>
+  </div>
+
+  <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+    <label className="block text-gray-400 mb-2 font-medium">Subject</label>
+    <input
+      type="text"
+      name="subject"
+      required
+      className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 hover:bg-gray-800"
+      placeholder="Project inquiry"
+    />
+  </motion.div>
+
+  <motion.div whileFocus={{ scale: 1.02 }} transition={{ duration: 0.2 }}>
+    <label className="block text-gray-400 mb-2 font-medium">Message</label>
+    <textarea
+      name="message"
+      required
+      rows={5}
+      className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-300 resize-none hover:bg-gray-800"
+      placeholder="Tell me about your project..."
+    />
+  </motion.div>
+
+  <motion.button
+    type="submit"
+    whileHover={{ scale: 1.02, y: -2 }}
+    whileTap={{ scale: 0.98 }}
+    className="w-full bg-gradient-to-r from-primary to-accent hover:from-primary/80 hover:to-accent/80 text-white py-4 rounded-lg transition-all duration-300 glow hover:shadow-lg font-medium"
+  >
+    <motion.span
+      initial={{ opacity: 1 }}
+      whileHover={{ opacity: 0.8 }}
+      className="flex items-center justify-center space-x-2"
+    >
+      <Mail className="w-5 h-5" />
+      <span>Send Message</span>
+    </motion.span>
+  </motion.button>
+</form>
+
           </motion.div>
         </div>
       </div>

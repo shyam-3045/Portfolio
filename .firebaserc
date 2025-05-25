@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "shyam-portfolio-6981b"
-  }
+  },
+  "targets": {
+    "shyam-portfolio-6981b": {
+      "hosting": {
+        "shyam-sm": [
+          "shyam-sm"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
