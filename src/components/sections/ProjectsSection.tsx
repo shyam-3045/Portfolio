@@ -19,7 +19,7 @@ const ProjectsSection = () => {
     "Mobile-first responsive UI"
   ],
   tech: ["React.js", "Node.js", "MongoDB"],
-  demo: "https://gold-finch.vercel.app/",
+  demo: "https://www.goldfinchteas.com/",
   github: "https://github.com/shyam-3045/GoldFinch"
 },
     // {
